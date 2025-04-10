@@ -114,7 +114,7 @@
 
     /* Remove borders on regular buttons */
     a[data-variant="default"],
-    button[data-variant="default"]:not([data-component="IconButton"]) {
+    button[data-variant="default"]:not([data-component="IconButton"]):not(.TabNav-item) {
         border-color: transparent !important;
     }
 

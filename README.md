@@ -41,6 +41,19 @@ If you use another compatible extension that appends CSS to the page, add this U
     https://github.com/lah7/github-classic-css/raw/refs/heads/master/github-classic.user.css
 
 
+## Screenshots
+
+### Code View
+| Before | After |
+| ------ | ----- |
+| ![Code - Before](https://github.com/user-attachments/assets/26e94aa2-bd49-409a-a25f-35d87ddd72d0) | ![Code - After](https://github.com/user-attachments/assets/72e23c26-7837-41d5-95a5-d1b713162c6f) |
+
+### Commit List
+| Before | After |
+| ------ | ----- |
+| ![Commits - Before](https://github.com/user-attachments/assets/cabc19da-bc27-4ce0-b898-f428dd318d21) | ![Commits - After](https://github.com/user-attachments/assets/b9956623-579a-4483-bc0d-c15d77f07bdf) |
+
+
 ## Updates
 
 I've been patching the CSS using Stylus since around 2020 when GitHub first

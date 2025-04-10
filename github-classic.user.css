@@ -694,11 +694,13 @@
     }
 
     /* Use native checkboxes -- also fixes poor contrast on read only issues! */
-    input[type=checkbox] {
+    input[type=checkbox],
+    input[type=radio] {
         appearance: auto;
     }
 
-    input[type=checkbox]::before {
+    input[type=checkbox]::before,
+    input[type=radio]::before {
         content: unset;
     }
 }

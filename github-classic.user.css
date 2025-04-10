@@ -112,6 +112,12 @@
         vertical-align: middle;
     }
 
+    /* Remove borders on regular buttons */
+    a[data-variant="default"],
+    button[data-variant="default"]:not([data-component="IconButton"]) {
+        border-color: transparent !important;
+    }
+
 
     /************************************************
     * Code tab
@@ -120,7 +126,7 @@
     .IssueLabel,
     .Label, /* e.g. "Public" label next to repository name */
     .signed-commit-badge {
-        border-radius: 2px;
+        border-radius: 2px !important;
     }
 
     .f3 {
@@ -357,6 +363,55 @@
         margin: auto 2px;
     }
 
+    .discussion-topic-header #pull_request_title_header /* "Add a title (PR) */ {
+        display: none;
+    }
+
+    .discussion-topic-header {
+        margin-bottom: 12px !important;
+    }
+
+    /************************************************
+    * "New" Issues Experience
+    *   github.com/<org>/<repo>/issues
+    ************************************************/
+    /* New Issue */
+    img[class^="IssueCreatePage-module__avatar"] {
+        height: 40px;
+        width: 40px;
+    }
+
+    /* Hide "Add a title" and "Add a description" for new issues */
+    label[class^="CreateIssueFormTitle-module__formControl"],
+    legend[class*="Label-module__inputLabel"] {
+        display: none;
+    }
+
+    /* Fix sidebar spacing for new issues (expanded) as it's inconsistent with regular issues */
+    div[class^="IssueCreatePage-module__createPane"] div[data-testid="sidebar-section"] {
+        margin-bottom: 6px;
+    }
+
+    /* Restore sidebar button text size/icon colour */
+    div[data-testid="sidebar-section"] button[data-size="medium"] span[data-component="text"],
+    div[data-testid="sidebar-section"] a[type="button"] span[data-component="text"] {
+        font-size: 13px;
+    }
+
+    div[data-testid="sidebar-section"] button[data-size="medium"] svg path,
+    div[data-testid="sidebar-section"] a[type="button"] svg path {
+        fill: var(--button-default-fgColor-rest,var(--color-btn-text)) !important;
+    }
+
+    /* Restore action buttons at the bottom of the sidebar */
+    ul[class*="ActionList-ActionList"] li:not([data-variant="danger"]) button svg path {
+        fill: var(--button-default-fgColor-rest,var(--color-btn-text)) !important;
+    }
+
+    ul[class*="ActionList-ActionList"] li button span[class*="ActionList-ItemLabel"] {
+        font-weight: 600;
+    }
+
 
     /************************************************
     * Watchers
@@ -432,7 +487,7 @@
 
 
     /************************************************
-    * Comments / Timeline
+    * Comments Timeline
     *   github.com/<org>/<repo>/issues/<issue>
     *   github.com/<org>/<repo>/pull/<pull>
     ************************************************/
@@ -478,7 +533,14 @@
 
     /* Comment header and buttons */
     div[data-testid^="comment-header"] {
+        /* Second comment onwards */
         padding: 2px 6px;
+    }
+
+    div[class*="ActivityHeader-module__narrowViewportWrapper"]:last-of-type button {
+        /* First comment only */
+        margin-right: 6px;
+        margin-top: 1px;
     }
 
     div[data-testid^="comment-header"] a[data-testid="avatar-link"] {
@@ -486,7 +548,7 @@
     }
 
     div[data-testid="comment-header-right-side-items"] {
-        margin-right: auto;
+        margin-right: -8px;
         flex: 1;
     }
 
@@ -555,9 +617,8 @@
     }
 
 
-
     /************************************************
-    * Comments / Emoji Reactions
+    * Emoji Reactions
     ************************************************/
     /* Restore old emoji reaction row */
     /* TODO: Need updating for 'new' issues/PR experience */

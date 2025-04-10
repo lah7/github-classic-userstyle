@@ -13,11 +13,11 @@ It tries to keep elements of the past design alive using CSS, such as:
 
 Some minor enhancements are made, like:
 
-* Using native checkboxes.
+* Using native checkboxes/radios.
 * Sticky comment headers while scrolling an issue/PR.
 
 It won't restore the old UI or layouts, and it can't restore any older UX
-or speed up the 'modern' AJAX calls. Rather, it tries to keep the older
+or speed up the 'modern' AJAX calls. Rather, it tries to keep the older look &
 feel alive as GitHub keeps advancing towards React.
 
 Like GitHub's design is considered "opinionated", these are also opinionated tweaks
@@ -56,11 +56,10 @@ If you use another compatible extension that appends CSS to the page, add this U
 
 ## Updates
 
-I've been patching the CSS using Stylus since around 2020 when GitHub first
-began to ~~regress~~ replace UI/UX parts with React.
+Since around 2020 when GitHub first began ~~regressing~~ changing the UI design,
+I began using Stylus to patch things back the way I liked it.
 
-The code was moved into a repository here so I can easily sync changes between my
-home and work computer, and now public if you're like me and miss elements of the
-old GitHub.
+The code was migrated into a repository so I can easily sync changes between
+my home and work computer. It's now made public.
 
-If GitHub changes the UI and I spot it, I'll update the style as soon as I can.
+If/when GitHub changes the UI and I encounter it, I'll update the style as soon as I can.

@@ -16,6 +16,7 @@
     /* Create a separate style to set your preferred colour here */
     :root {
         --color-primer-border-active: #58a6ff !important;
+        --underlineNav-borderColor-active: #58a6ff !important;
         --monospace-font: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
     }
 

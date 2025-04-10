@@ -1,0 +1,642 @@
+/* ==UserStyle==
+@name         GitHub Classic
+@namespace    https://github.com/lah7/github-classic-css
+@homepageURL  https://github.com/lah7/github-classic-css
+@version      2025.04.10
+@license      Other
+@description  Bring back aesthetics from the classic GitHub interface.
+@author       lah7
+@preprocessor uso
+==/UserStyle== */
+/********************************************************************
+ * Designed for logged in user and dark mode only!
+ * Logged out and light experience may vary.
+********************************************************************/
+@-moz-document domain("github.com") {
+    /* Create a separate style to set your preferred colour here */
+    :root {
+        --color-primer-border-active: #58a6ff !important;
+        --monospace-font: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+    }
+
+
+    /************************************************
+    * Top Navigation
+    ************************************************/
+    /* Highlight the selected page in the navigation tabs */
+    .UnderlineNav-body {
+        margin-bottom: -6px;
+        z-index: 1;
+    }
+
+    .UnderlineNav-item {
+        border-radius: 3px 3px 0 0;
+        border: 1px solid transparent;
+        padding: 4px 10px;
+    }
+
+    .UnderlineNav-item:hover,
+    .UnderlineNav-item:focus {
+        border-color: #343942;
+        border-bottom-color: #0d1117;
+        border-radius: 3px 3px 0 0;
+    }
+
+    .UnderlineNav-item.selected {
+        background-color: #0d1117;
+        border-left: 1px solid #3d444d;
+        border-right: 1px solid #3d444d;
+        border-bottom: 1px solid #0d1117 !important;
+        border-top: 3px solid #58a6ff;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .UnderlineNav-body .d-flex > a {
+        visibility: visible !important;
+    }
+
+    /* Remove border on app header button (top-left) */
+    .AppHeader-button {
+        border: none !important;
+    }
+
+
+    /************************************************
+    * General & Buttons
+    ************************************************/
+    /* Restore square avatars, remove circular avatars */
+    .avatar-user,
+    .circle,
+    .pc-AvatarItem,
+    img[data-testid="github-avatar"] {
+        border-radius: 2px !important;
+    }
+
+    /* Classic buttons (legacy) */
+    body .btn.hover,
+    body .btn:hover {
+        transition: none;
+    }
+
+    body .btn {
+        border: 1px solid rgba(27,31,35,0.2);
+    }
+
+    body .btn:hover {
+        border-color: rgba(27,31,35,0.35);
+    }
+
+    body .btn:active {
+        border-color: rgba(27,31,35,0.35);
+        box-shadow: inset 0 0.15em 0.3em rgba(27,31,35,0.15);
+    }
+
+    button[data-variant="primary"] {
+        background: linear-gradient(-180deg, #28a745 0%, #238636 90%);
+    }
+
+    button[data-variant="primary"]:hover {
+        background: linear-gradient(-180deg, #269f42 0%, #238636 90%);
+        border-color: rgba(27,31,35,0.5);
+    }
+
+    button[data-variant="primary"]:active {
+        background: #279f43;
+        border-color: rgba(27,31,35,0.5);
+        box-shadow: inset 0 0.15em 0.3em rgba(27,31,35,0.15);
+    }
+
+    .btn-sm .octicon {
+        vertical-align: middle;
+    }
+
+
+    /************************************************
+    * Code tab
+    *   github.com/<org>/<repo>
+    ************************************************/
+    .IssueLabel,
+    .Label, /* e.g. "Public" label next to repository name */
+    .signed-commit-badge {
+        border-radius: 2px;
+    }
+
+    .f3 {
+        font-size: 18px !important;
+    }
+
+    /* Vertically center align the repository title */
+    #repository-container-header .width-fit {
+        display: flex;
+    }
+
+    #repository-container-header #repo-title-component {
+        margin: auto 0;
+    }
+
+    /* Increase size of repository icon */
+    #repo-title-component .avatar {
+        height: 32px;
+        width: 32px;
+    }
+
+    #repo-title-component strong {
+        margin: auto;
+    }
+
+    /* Hide border on "Sponsor" button to match pagehead actions */
+    #repository-container-header button {
+        border: none;
+    }
+
+    /* Pagehead Actions - Watch, Star, Fork pills */
+    .pagehead-actions .btn,
+    .pagehead-actions react-partial button {
+        display: inline-flex;
+        padding: 4px 8px;
+        overflow: hidden;
+    }
+
+    .pagehead-actions react-partial button { /* Watch */
+        border-color: #21262d;
+        padding: 14px 8px !important;
+    }
+
+    .pagehead-actions .btn .octicon {
+        margin-right: 4px !important;
+    }
+
+    .pagehead-actions .btn .Counter,
+    .pagehead-actions react-partial button .Counter {
+        border-top: 1px solid #21262d;
+        border-bottom: 1px solid #21262d;
+        border-radius: 0 !important;
+        display: inline-block;
+        padding: 1px 9px;
+        margin: -5px 7px;
+        line-height: 26px;
+        vertical-align: middle;
+    }
+
+    .pagehead-actions .btn .Counter:last-of-type,
+    .pagehead-actions react-partial button .Counter {
+        margin-right: -8px;
+        padding-right: 10px;
+        border-top-right-radius: 20%;
+        border-bottom-right-radius: 20%;
+    }
+
+    .pagehead-actions .starred .btn .Counter, /* Stars */
+    .pagehead-actions .unstarred .btn .Counter {
+        padding-right: 8px !important;
+        border-radius: 0 !important;
+    }
+
+    .pagehead-actions react-partial button span[data-component="trailingAction"] { /* Watching */
+        padding-left: 8px !important;
+    }
+
+    .pagehead-actions .btn .dropdown-caret {
+        margin: auto 2px;
+    }
+
+    .pagehead-actions form + details {
+        display: flex !important;
+        margin: 0;
+    }
+
+    .pagehead-actions form + details > .btn-sm {
+        display: flex;
+        padding: 6px 4px !important;
+    }
+
+    .pagehead-actions form + details > .btn-sm svg {
+        margin: auto !important;
+    }
+
+    /* Put starred second, not last */
+    .pagehead-actions {
+        display: inline-flex !important;
+    }
+
+    /* Restore extended latest commit */
+    div[data-testid="latest-commit-details"] * {
+        font-size: 14px;
+    }
+
+    .extended-commit-description-container, /* Commits page */
+    .border-top span[data-testid="latest-commit-html"] { /* Latest via Code tab */
+        font-family: var(--monospace-font) !important;
+        font-size: 12px;
+        font-weight: 400;
+        margin-top: auto;
+    }
+
+    .extended-commit-description-container a {
+        font-size: 12px !important;
+        font-weight: 400 !important;
+    }
+
+    .bgColor-muted.border-top {
+        border-top: none !important;
+        padding-top: 0 !important;
+        padding-left: 36px !important;
+    }
+
+    span[data-testid="latest-commit-html"] a {
+        color: white !important;
+    }
+
+    h2[data-testid="screen-reader-heading"] ~ a,
+    h2[data-testid="screen-reader-heading"] ~ a path { /* Latest: X commits */
+        color: white !important;
+        fill: white !important;
+        font-size: 13px !important;
+        font-weight: bold;
+        text-transform: lowercase;
+    }
+
+
+    /************************************************
+    * File Listing
+    *   github.com/<org>/<repo>/*
+    *   github.com/<org>/<repo>/tree/master/*
+    ************************************************/
+    .react-directory-filename-column a {
+        color: #58a6ff !important;
+    }
+
+    .react-directory-row,
+    .react-directory-filename-column {
+        height: 34px;
+    }
+
+
+    /************************************************
+    * Commit List
+    *   github.com/<org>/<repo>/commits
+    ************************************************/
+    /* Restore commit title and author link */
+    div[data-testid="latest-commit"] a {
+        font-weight: 400;
+    }
+
+    a[data-testid="avatar-icon-link"] + a {
+        color: white;
+        font-weight: 600;
+    }
+
+    div[data-testid="latest-commit"] a.issue-link,
+    ul[data-listview-component="items-list"] a.issue-link {
+        color: var(--fgColor-accent, var(--color-accent-fg)) !important;
+        font-weight: 500;
+    }
+
+    ul[data-listview-component="items-list"] .hWqAbU a,
+    li[data-testid="commit-row-item"] .markdown-title,
+    div[data-testid="list-view-item-title-container"] a {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    /* Restore show/hide toggle for extended commit */
+    button[data-testid="commit-row-show-description-button"] .octicon {
+        display: none !important;
+    }
+
+    button[data-testid="commit-row-show-description-button"]::after {
+        content: "...";
+        margin: auto;
+        padding: 0 5px 5px;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 8px;
+        color: var(--fgColor-default, var(--color-fg-default));
+        text-decoration: none;
+        vertical-align: middle;
+        background: var(--bgColor-neutral-muted, var(--color-neutral-muted));
+        border: 0;
+        border-radius: 1px;
+    }
+
+    /* Right metadata buttons */
+    .mb-3 button[data-testid="commit-row-show-description-button"] {
+        height: 12px;
+    }
+
+    li[data-testid="commit-row-item"] button { /* Verified commit */
+        border-radius: 2px !important;
+        font-weight: 500;
+        height: unset;
+        padding: 4px 8px;
+    }
+
+    .mb-3 .Button-label.color-fg-muted { /* Commit SHA1 */
+        color: white !important;
+        font-weight: 500;
+    }
+
+
+    /************************************************
+    * Issues/Pull Requests (Legacy)
+    *   github.com/<org>/<repo>/pulls
+    ************************************************/
+    .js-active-navigation-container .js-issue-row {
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+    }
+
+    details.details-overlay summary.btn {
+        border: none !important;
+        padding: 6px 10px !important;
+    }
+
+    .btn-sm .octicon {
+        margin: auto 2px;
+    }
+
+
+    /************************************************
+    * Watchers
+    *   github.com/<org>/<repo>/watchers
+    ************************************************/
+    /* Restore larger avatars on watchers/stars */
+    .flex-wrap.gutter .avatar-user {
+        height: auto;
+        width: 70px;
+    }
+
+
+    /************************************************
+    * Commit Details
+    *   github.com/<org>/<repo>/commit/<sha>
+    ************************************************/
+    /* Commit titles are not mono! */
+    .CommitHeader-module__commit-message-container--nl1pf > span:first-child div {
+        font-family: sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0 0 4px;
+    }
+
+    /* Commit details: Smaller commit description, like in commit list */
+    div[data-component="TitleArea"] ~ div .extended-commit-description-container {
+        font-size: 13px !important;
+    }
+
+    /* Commit details: Bold tag links */
+    div[data-component="TitleArea"] ~ div .flex-items-center a {
+        font-weight: 500 !important;
+    }
+
+    div[data-component="TitleArea"] ~ div .flex-items-center a + a {
+        margin-left: 2px !important;
+    }
+
+    div[data-component="TitleArea"] ~ div .flex-items-center svg {
+        margin-right: 2px !important;
+    }
+
+
+    /************************************************
+    * Issues tab / Milestones
+    *   github.com/<org>/<repo>/issues
+    *   github.com/<org>/<repo>/milestone
+    ************************************************/
+    /* "123 Open / 456 Closed" - place open/closed counters back on the left */
+    ul[class^="list-style-none ListItems-module__tabsContainer"] a,
+    ul[class^="list-style-none RepositoryMilestone-module__tabsContainer"] a {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    ul[class^="list-style-none ListItems-module__tabsContainer"] a span,
+    ul[class^="list-style-none RepositoryMilestone-module__tabsContainer"] a span {
+        /* Counter */
+        background: transparent;
+        color: inherit;
+        font-weight: inherit;
+        font-size: inherit;
+        padding: 0;
+        text-align: right;
+        margin: 0;
+        margin-right: 4px;
+        min-width: unset;
+    }
+
+    div[class*="LoadingSkeleton"] { /* Original counter briefly appears on the right side of the label */
+        display: none;
+    }
+
+
+    /************************************************
+    * Comments / Timeline
+    *   github.com/<org>/<repo>/issues/<issue>
+    *   github.com/<org>/<repo>/pull/<pull>
+    ************************************************/
+    /* Remove "Add a comment", "Add a title", "Add a description" titles */
+    #issue_title_header,
+    #react-issue-comment-composer > div:first-child h2,
+    h3[id^=previewable-comment-form-component],
+    #new_comment_form h4[id^="previewable-comment"] {
+        display: none;
+    }
+
+    div[data-testid="comment-composer"] > div > div {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    div[data-testid="comment-composer"] img {
+        margin-top: 10px;
+    }
+
+    #react-issue-comment-composer {
+        padding-top: 0;
+    }
+
+    /* The last timeline item is too close to the add comment box */
+    section[aria-label="Events"]:last-of-type .Timeline-Item {
+        padding-bottom: 24px !important;
+        margin-bottom: -8px !important;
+    }
+
+    /* Avatars in timeline items were slightly larger */
+    section[aria-label="Events"] .Timeline-Item img[data-component="Avatar"] {
+        height: 20px;
+        width: 20px;
+        margin-right: 6px;
+    }
+
+    /* Timeline (between comments) were positioned more to the left */
+    section[aria-label="Events"],
+    section[aria-label="Events"] + div div[data-testid^="timeline-divider"] {
+        margin-left: -16px;
+    }
+
+    /* Comment header and buttons */
+    div[data-testid^="comment-header"] {
+        padding: 2px 6px;
+    }
+
+    div[data-testid^="comment-header"] a[data-testid="avatar-link"] {
+        font-weight: 600;
+    }
+
+    div[data-testid="comment-header-right-side-items"] {
+        margin-right: auto;
+        flex: 1;
+    }
+
+    button[data-testid="comment-header-hamburger"] {
+        margin-left: auto;
+    }
+
+    /* Sidebar: Restore participants size */
+    div[data-testid="sidebar-participants-section"] img[data-testid="github-avatar"] {
+        height: 26px;
+        width: 26px;
+    }
+
+    /* Again with the rounded labels! */
+    div[data-testid="issue-labels"] a > span,
+    div[class^="labels-module__labelContainer"] span,
+    div[data-listview-component="trailing-badge"] *, /* As used in new issues experience */
+    span[data-testid="comment-subject-author"],
+    span[data-testid="comment-author-association"] {
+        border-radius: 2px;
+        font-weight: 500;
+    }
+
+    div[class^="labels-module__labelContainer"] {
+        margin: 0 1px;
+    }
+
+    /* Commit links should be mono */
+    a[data-testid="closer-link"] {
+        font-family: var(--monospace-font) !important;
+        font-size: 0.9em;
+    }
+
+    /* Bring back the caret arrow pointing at avatar */
+    div[data-testid="issue-body"],
+    div[data-testid="comment-header"] {
+        position: relative;
+    }
+
+    div[data-testid="issue-body"]::before,
+    div[data-testid="issue-body"]::after,
+    div[data-testid="comment-header"]::before,
+    div[data-testid="comment-header"]::after {
+        position: absolute;
+        top: 11px;
+        right: 100%;
+        left: calc(var(--base-size-8)*-1);
+        display: block;
+        width: 8px;
+        height: 16px;
+        pointer-events: none;
+        content: " ";
+        clip-path: polygon(0 50%, 100% 0, 100% 100%);
+    }
+
+    div[data-testid="issue-body"]::before,
+    div[data-testid="comment-header"]::before {
+        background-color: var(--borderColor-default, var(--color-border-default));
+    }
+
+    div[data-testid="issue-body"]::after,
+    div[data-testid="comment-header"]::after {
+        margin-left: 2px;
+        background-color: var(--bgColor-default, var(--color-canvas-default));
+        background-image: linear-gradient(var(--bgColor-muted, var(--color-canvas-subtle)), var(--bgColor-muted, var(--color-canvas-subtle)));
+    }
+
+
+
+    /************************************************
+    * Comments / Emoji Reactions
+    ************************************************/
+    /* Restore old emoji reaction row */
+    /* TODO: Need updating for 'new' issues/PR experience */
+    .comment-reactions {
+        margin: 0 !important;
+        border-top: 1px solid #30363d;
+    }
+
+    .reaction-summary-item,
+    .social-reaction-summary-item {
+        display: flex !important;
+        margin: 0 !important;
+        padding: 0.5em 1em !important;
+        padding-right: 0.75em !important;
+        border-radius: 0 !important;
+        font-size: 16px !important;
+        line-height: 1.2em !important;
+        height: 2.5em;
+    }
+
+    .social-reaction-summary-item > span {
+        height: 16px !important;
+    }
+
+    .comment-reactions-options img.emoji {
+        position: relative;
+        top: 2px;
+    }
+
+    .new-reactions-summary-item,
+    .new-reactions-dropdown .reaction-dropdown-button {
+        padding: 0.5em 0em !important;
+        margin: 0 !important;
+        height: auto;
+        width: 5em;
+        max-width: 100px;
+    }
+
+    .new-reactions-dropdown .reaction-dropdown-button {
+        /* Used for PRs */
+        width: 4em;
+        height: 2.75em;
+    }
+
+    .comment-reactions .color-text-secondary {
+        display: block;
+        padding-left: 1em;
+        padding-top: 0.4em;
+    }
+
+
+    /************************************************
+    * Enhancements
+    ************************************************/
+    /* Sticky comment header and avatar in issues while scrolling */
+    /* TODO: Sticky avatar too? */
+    .timeline-comment-header {
+        position: sticky;
+        top: 60px;
+        backdrop-filter: blur(20px);
+        z-index: 10;
+    }
+
+    /* Hide cookie links in the footer - causing clutter */
+    nav cookie-consent-link[data-catalyst=""] {
+        display: none;
+    }
+
+    /* Fix their bug: Previous/Next buttons not showing disabled state */
+    a.text-normal[aria-disabled="true"] {
+        color: grey !important;
+        cursor: not-allowed !important;
+    }
+
+    /* Use native checkboxes -- also fixes poor contrast on read only issues! */
+    input[type=checkbox] {
+        appearance: auto;
+    }
+
+    input[type=checkbox]::before {
+        content: unset;
+    }
+}

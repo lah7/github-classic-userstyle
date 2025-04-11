@@ -300,7 +300,7 @@
         font-weight: 500;
     }
 
-    ul[data-listview-component="items-list"] .hWqAbU a,
+    ul[data-listview-component="items-list"] h4 a,
     li[data-testid="commit-row-item"] .markdown-title,
     div[data-testid="list-view-item-title-container"] a {
         font-size: 14px;

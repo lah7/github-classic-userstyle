@@ -37,6 +37,8 @@
         padding: 4px 10px;
     }
 
+    .tabnav-tab:hover,
+    a[class^="TabNav__TabNavLink"]:hover,
     .UnderlineNav-item:hover,
     .UnderlineNav-item:focus {
         border-color: #343942;

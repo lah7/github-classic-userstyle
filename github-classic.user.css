@@ -631,6 +631,11 @@
         color: var(--fgColor-success);
     }
 
+    /* When an issue references a commit, move verified/hash more to the right */
+    div[class*="prc-Timeline-TimelineBody"] {
+        padding-right: 12px;
+    }
+
 
     /************************************************
     * Emoji Reactions

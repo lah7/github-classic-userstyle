@@ -570,7 +570,8 @@
     div[class^="labels-module__labelContainer"] span,
     div[data-listview-component="trailing-badge"] *, /* As used in new issues experience */
     span[data-testid="comment-subject-author"],
-    span[data-testid="comment-author-association"] {
+    span[data-testid="comment-author-association"],
+    div[class^="row-module__timelineBodyContent"] button[data-size="small"][data-variant="success"] {
         border-radius: 2px;
         font-weight: 500;
     }

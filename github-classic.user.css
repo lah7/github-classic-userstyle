@@ -619,6 +619,17 @@
         background-image: linear-gradient(var(--bgColor-muted, var(--color-canvas-subtle)), var(--bgColor-muted, var(--color-canvas-subtle)));
     }
 
+    /* Colourise renamed title changes */
+    del[class^="RenamedTitleEvent-module"] {
+        background: var(--borderColor-closed-muted);
+        color: var(--fgColor-muted);
+    }
+
+    ins[class^="RenamedTitleEvent-module"] {
+        background: var(--bgColor-success-muted);
+        color: var(--fgColor-success);
+    }
+
 
     /************************************************
     * Emoji Reactions

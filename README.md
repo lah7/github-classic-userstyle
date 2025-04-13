@@ -57,9 +57,10 @@ If you use another compatible extension that appends CSS to the page, add this U
 ## Updates
 
 Since around 2020 when GitHub first began ~~regressing~~ changing the UI design,
-I began using Stylus to patch things back the way I liked it.
+I began using Stylus to patch things back to something more comfortable.
 
-The code was migrated into a repository so I can easily sync changes between
-my home and work computer. It's now made public.
+I figured to make this code public in 2025 after the
+[general availability of the new Issues and Projects](https://github.blog/changelog/2025-04-09-evolving-github-issues-and-projects/),
+plus I'd like to easily sync updates between my home and work computer.
 
 If/when GitHub changes the UI and I encounter it, I'll update the style as soon as I can.

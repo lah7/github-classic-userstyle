@@ -2,7 +2,7 @@
 @name         GitHub Classic
 @namespace    https://github.com/lah7/github-classic-css
 @homepageURL  https://github.com/lah7/github-classic-css
-@version      2025.04.12
+@version      2025.04.14
 @license      Other
 @description  Bring back aesthetics from the classic GitHub interface.
 @author       lah7
@@ -378,10 +378,15 @@
     * "New" Issues Experience
     *   github.com/<org>/<repo>/issues
     ************************************************/
-    /* New Issue */
+    /* Avatar for new issues page */
     img[class^="IssueCreatePage-module__avatar"] {
         height: 40px;
         width: 40px;
+    }
+
+    /* Fix font size next to "Open" or "Closed" in header for issues with an associated pull request */
+    div[data-testid="issue-metadata-fixed"] span {
+        font-size: 14px;
     }
 
     /* Hide "Add a title" and "Add a description" for new issues */

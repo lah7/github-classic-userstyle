@@ -401,8 +401,8 @@
     }
 
     /* Restore sidebar button text size/icon colour */
-    div[data-testid="sidebar-section"] button[data-size="medium"] span[data-component="text"],
-    div[data-testid="sidebar-section"] a[type="button"] span[data-component="text"] {
+    div[data-testid="sidebar-section"] button[data-size="medium"][data-variant="default"] span,
+    div[data-testid="sidebar-section"] a[type="button"][data-variant="default"] span {
         font-size: 13px;
     }
 

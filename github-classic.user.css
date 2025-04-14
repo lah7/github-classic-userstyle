@@ -374,6 +374,7 @@
         margin-bottom: 12px !important;
     }
 
+
     /************************************************
     * "New" Issues Experience
     *   github.com/<org>/<repo>/issues
@@ -418,6 +419,38 @@
 
     ul[class*="ActionList-ActionList"] li button span[class*="ActionList-ItemLabel"] {
         font-weight: 600;
+    }
+
+
+    /************************************************
+     * Issues: Restore icons on Open/Closed labels
+     *   github.com/<org>/<repo>/issues
+     ************************************************/
+    /* Icons at https://github.com/primer/octicons/tree/main/icons */
+    ul[class*="ListItems-module__tabsContainer"] li:nth-child(1) a[href*="issues"]::after,
+    ul[class*="ListItems-module__tabsContainer"] li:nth-child(2) a[href*="issues"]::after {
+        content: " ";
+        height: 16px;
+        width: 16px;
+        margin-right: 6px;
+        background-image: url(https://raw.githubusercontent.com/primer/octicons/refs/heads/main/icons/issue-opened-16.svg);
+        background-size: 16px;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: invert(0.5);
+    }
+
+    ul[class*="ListItems-module__tabsContainer"] li:nth-child(1) a[href*="issues"][class*="SectionFilterLink-module__selected"]::after,
+    ul[class*="ListItems-module__tabsContainer"] li:nth-child(2) a[href*="issues"][class*="SectionFilterLink-module__selected"]::after {
+        filter: invert(1);
+    }
+
+    ul[class*="ListItems-module__tabsContainer"] li:nth-child(1) a[href*="issues"]::after {
+        background-image: url(https://raw.githubusercontent.com/primer/octicons/refs/heads/main/icons/issue-opened-16.svg);
+    }
+
+    ul[class*="ListItems-module__tabsContainer"] li:nth-child(2) a[href*="issues"]::after {
+        background-image: url(https://raw.githubusercontent.com/primer/octicons/refs/heads/main/icons/check-16.svg);
     }
 
 
@@ -485,7 +518,7 @@
         padding: 0;
         text-align: right;
         margin: 0;
-        margin-right: 4px;
+        margin-right: 3px;
         min-width: unset;
     }
 

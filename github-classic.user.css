@@ -96,16 +96,19 @@
         box-shadow: inset 0 0.15em 0.3em rgba(27,31,35,0.15);
     }
 
-    button[data-variant="primary"] {
+    button[data-variant="primary"],
+    a[data-variant="primary"] {
         background: linear-gradient(-180deg, #28a745 0%, #238636 90%);
     }
 
-    button[data-variant="primary"]:hover {
+    button[data-variant="primary"]:hover,
+    a[data-variant="primary"]:hover {
         background: linear-gradient(-180deg, #269f42 0%, #238636 90%);
         border-color: rgba(27,31,35,0.5);
     }
 
-    button[data-variant="primary"]:active {
+    button[data-variant="primary"]:active,
+    a[data-variant="primary"]:active {
         background: #279f43;
         border-color: rgba(27,31,35,0.5);
         box-shadow: inset 0 0.15em 0.3em rgba(27,31,35,0.15);

@@ -2,7 +2,7 @@
 @name         GitHub Classic
 @namespace    https://github.com/lah7/github-classic-css
 @homepageURL  https://github.com/lah7/github-classic-css
-@version      2025.04.14
+@version      2025.04.15
 @license      Other
 @description  Bring back aesthetics from the classic GitHub interface.
 @author       lah7
@@ -295,9 +295,10 @@
         font-weight: 400;
     }
 
-    a[data-testid="avatar-icon-link"] + a {
+    a[data-testid="avatar-icon-link"] + a,
+    a[aria-label^="commits by"] {
         color: white;
-        font-weight: 600;
+        font-weight: 600 !important;
     }
 
     div[data-testid="latest-commit"] a.issue-link,

@@ -2,7 +2,7 @@
 @name         GitHub Classic
 @namespace    https://github.com/lah7/github-classic-css
 @homepageURL  https://github.com/lah7/github-classic-css
-@version      2025.04.15
+@version      2025.04.16
 @license      Other
 @description  Bring back aesthetics from the classic GitHub interface.
 @author       lah7
@@ -394,10 +394,36 @@
         font-size: 14px;
     }
 
-    /* Hide "Add a title" and "Add a description" for new issues */
+    /* Hide "Create new issue", "Add a title" and "Add a description" for new issues - expanded view */
     label[class^="CreateIssueFormTitle-module__formControl"],
-    legend[class*="Label-module__inputLabel"] {
+    legend[class*="Label-module__inputLabel"],
+    h2#issue-create-pane-title {
         display: none;
+    }
+
+    /* ... instead, the issue template (if present) is the title */
+    /* github.com/org/repo/issues/new */
+    div[data-testid="issue-create-pane-container"] > div {
+        margin: 0 !important;
+        margin-top: -4px !important;
+        position: relative !important;
+        top: 0 !important;
+    }
+
+    h2#issue-create-pane-title + div {
+        margin: 6px 2px 18px !important;
+    }
+
+    h2#issue-create-pane-title + div span {
+        /* github.com/org/repo/issues/new/?template= */
+        font-size: 16px;
+        font-weight: bold;
+        color: var(--fgColor-default) !important;
+    }
+
+    /* Enlarge the issue title field */
+    div[class^="CreateIssueFormTitle-module"] input {
+        height: 36px;
     }
 
     /* Fix sidebar spacing for new issues (expanded) as it's inconsistent with regular issues */

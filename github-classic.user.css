@@ -118,10 +118,12 @@
         vertical-align: middle;
     }
 
-    /* Remove borders on regular buttons */
-    a[data-variant="default"],
-    button[data-variant="default"]:not([data-component="IconButton"]):not(.TabNav-item) {
-        border-color: transparent !important;
+    /* Remove borders on regular buttons, dark only */
+    @media (prefers-color-scheme: dark) {
+        a[data-variant="default"],
+        button[data-variant="default"]:not([data-component="IconButton"]):not(.TabNav-item) {
+            border-color: transparent !important;
+        }
     }
 
 
@@ -174,6 +176,13 @@
     .pagehead-actions react-partial button { /* Watch */
         border-color: transparent;
         padding: 14px 8px !important;
+    }
+
+    @media (prefers-color-scheme: light) {
+        .pagehead-actions li {
+            border-radius: 5px;
+            border: 1px solid var(--borderColor-muted, #30363d);
+        }
     }
 
     .pagehead-actions .btn .octicon {

@@ -192,6 +192,15 @@
         vertical-align: middle;
     }
 
+    details.details-overlay summary.btn { /* Drop down next to Fork/Star */
+        border: none !important;
+        padding: 6px 3px !important;
+    }
+
+    details[id^="my-forks-menu"] summary.btn { /* Fork */
+        padding: 6px 4px !important;
+    }
+
     #fork-button {
         border: none;
     }

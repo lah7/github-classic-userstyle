@@ -633,7 +633,8 @@
         margin-top: 1px;
     }
 
-    div[data-testid^="comment-header"] a[data-testid="avatar-link"] {
+    div[data-testid="issue-body"] a[data-testid="issue-body-header-author"], /* First comment */
+    div[data-testid^="comment-header"] a[data-testid="avatar-link"] { /* Subsequent comments */
         font-weight: 600;
     }
 

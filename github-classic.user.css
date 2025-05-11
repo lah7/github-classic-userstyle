@@ -2,7 +2,7 @@
 @name         GitHub Classic
 @namespace    https://github.com/lah7/github-classic-css
 @homepageURL  https://github.com/lah7/github-classic-css
-@version      2025.05.09
+@version      2025.05.11
 @license      Other
 @description  Bring back aesthetics from the classic GitHub interface.
 @author       lah7
@@ -787,12 +787,29 @@
     * Enhancements
     ************************************************/
     /* Sticky comment header and avatar in issues while scrolling */
-    /* TODO: Sticky avatar too? */
-    .timeline-comment-header {
+    .timeline-comment-header { /* Old / PR only; avatar does not scroll */
         position: sticky;
         top: 60px;
         backdrop-filter: blur(20px);
         z-index: 10;
+    }
+
+    div[data-testid="issue-body"] > .Box-sc-g0xbh4-0 > .Box-sc-g0xbh4-0 > .Box-sc-g0xbh4-0, /* First comment content */
+    div[data-testid="comment-header"] {
+        position: sticky;
+        top: 56px;
+        backdrop-filter: blur(10px);
+        z-index: 10;
+    }
+
+    a[class^="Avatar-module__avatarLink"] {
+        position: sticky;
+        top: 42px;
+        z-index: 10;
+    }
+
+    div[data-testid="issue-viewer-issue-container"] a[class^="Avatar-module__avatarLink"] { /* First comment avatar */
+        top: 64px;
     }
 
     /* Hide cookie links in the footer - causing clutter */

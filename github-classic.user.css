@@ -2,7 +2,7 @@
 @name         GitHub Classic
 @namespace    https://github.com/lah7/github-classic-css
 @homepageURL  https://github.com/lah7/github-classic-css
-@version      2025.05.11
+@version      2025.05.15
 @license      Other
 @description  Bring back aesthetics from the classic GitHub interface.
 @author       lah7
@@ -624,7 +624,8 @@
     /* Comment header and buttons */
     div[data-testid^="comment-header"] {
         /* Second comment onwards */
-        padding: 2px 6px;
+        padding-left: 6px;
+        padding-right: 6px;
     }
 
     div[class*="ActivityHeader-module__narrowViewportWrapper"]:last-of-type button {

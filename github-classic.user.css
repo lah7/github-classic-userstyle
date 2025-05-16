@@ -126,6 +126,11 @@
         }
     }
 
+    /* Fix misaligned arrow on base/compare dropdown buttons */
+    .select-menu-button::after {
+        margin-top: 5px;
+    }
+
 
     /************************************************
     * Code tab

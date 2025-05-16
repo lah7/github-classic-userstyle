@@ -2,7 +2,7 @@
 @name         GitHub Classic
 @namespace    https://github.com/lah7/github-classic-css
 @homepageURL  https://github.com/lah7/github-classic-css
-@version      2025.05.15
+@version      2025.05.16
 @license      Other
 @description  Bring back aesthetics from the classic GitHub interface.
 @author       lah7
@@ -121,8 +121,13 @@
     /* Remove borders on regular buttons, dark only */
     @media (prefers-color-scheme: dark) {
         a[data-variant="default"],
+        button[data-variant="default"][data-component="IconButton"], /* Drop down caret, e.g. "Close issue" */
         button[data-variant="default"]:not([data-component="IconButton"]):not(.TabNav-item) {
             border-color: transparent !important;
+        }
+
+        button[data-variant="default"][data-component="IconButton"] {
+            border-left: 1px solid var(--bgColor-neutral-muted) !important;
         }
     }
 
@@ -206,7 +211,7 @@
         vertical-align: middle;
     }
 
-    details.details-overlay summary.btn { /* Drop down next to Fork/Star */
+    #repository-container-header details.details-overlay summary.btn { /* Drop down next to Fork/Star */
         border: none !important;
         padding: 6px 3px !important;
     }

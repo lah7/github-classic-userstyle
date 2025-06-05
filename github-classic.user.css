@@ -846,9 +846,12 @@
         content: unset;
     }
 
-    /* Individual days in the contribution graph didn't show a border - bug? feature? */
+    /* Profile: Contribution graph */
     .ContributionCalendar-day,
     .ContributionCalendar-day[data-level="0"] {
         border: none;
+
+        /* Back to squares */
+        border-radius: 1px;
     }
 }

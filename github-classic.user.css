@@ -2,7 +2,7 @@
 @name         GitHub Classic
 @namespace    https://github.com/lah7/github-classic-css
 @homepageURL  https://github.com/lah7/github-classic-css
-@version      2025.06.05
+@version      2025.06.29
 @license      Other
 @description  Bring back aesthetics from the classic GitHub interface.
 @author       lah7
@@ -18,7 +18,6 @@
         --color-primer-border-active: #58a6ff !important;
         --underlineNav-borderColor-active: #58a6ff !important;
         --monospace-font: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
-        --base-text-weight-light: 500;
     }
 
 

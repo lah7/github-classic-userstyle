@@ -2,7 +2,7 @@
 @name         GitHub Classic
 @namespace    https://github.com/lah7/github-classic-css
 @homepageURL  https://github.com/lah7/github-classic-css
-@version      2025.08.17
+@version      2025.08.22
 @license      Other
 @description  Bring back aesthetics from the classic GitHub interface.
 @author       lah7
@@ -372,9 +372,6 @@
 
     li[data-testid="commit-row-item"] button { /* Verified commit */
         border-radius: 2px !important;
-        font-weight: 500;
-        height: unset;
-        padding: 4px 8px;
     }
 
     .mb-3 .Button-label.color-fg-muted { /* Commit SHA1 */

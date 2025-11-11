@@ -2,7 +2,7 @@
 @name         GitHub Classic
 @namespace    https://github.com/lah7/github-classic-css
 @homepageURL  https://github.com/lah7/github-classic-css
-@version      2025.08.22
+@version      2025.11.11
 @license      Other
 @description  Bring back aesthetics from the classic GitHub interface.
 @author       lah7
@@ -802,7 +802,7 @@
         z-index: 10;
     }
 
-    div[class^="IssueBodyHeader-module__"], /* First comment */
+    div[class^="IssueBodyHeader-module__IssueBodyHeaderContainer"], /* First comment */
     div[data-testid="comment-header"] {
         position: sticky;
         top: 56px;

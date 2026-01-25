@@ -24,6 +24,10 @@
     /************************************************
     * Top Navigation
     ************************************************/
+    ul[class^="prc-components-UnderlineItemList"] {
+        gap: 0;
+    }
+
     /* Highlight the selected page in the navigation tabs */
     a[class^="prc-components-UnderlineItem"]::after {
         display: none;

@@ -2,7 +2,7 @@
 @name         GitHub Classic
 @namespace    https://github.com/lah7/github-classic-css
 @homepageURL  https://github.com/lah7/github-classic-css
-@version      2025.12.23
+@version      2026.01.25
 @license      Other
 @description  Bring back aesthetics from the classic GitHub interface.
 @author       lah7
@@ -25,43 +25,37 @@
     * Top Navigation
     ************************************************/
     /* Highlight the selected page in the navigation tabs */
-    .UnderlineNav-body {
-        margin-bottom: -6px;
-        z-index: 1;
+    a[class^="prc-components-UnderlineItem"]::after {
+        display: none;
+        content: unset;
     }
 
-    .UnderlineNav-item {
-        border-radius: 3px 3px 0 0;
+    a[class^="prc-components-UnderlineItem"] {
         border: 1px solid transparent;
-        padding: 4px 10px;
-    }
-
-    .tabnav-tab:hover,
-    a[class^="TabNav__TabNavLink"]:hover,
-    .UnderlineNav-item:hover,
-    .UnderlineNav-item:focus {
-        border-color: var(--borderColor-default);
-        border-bottom-color: var(--bgColor-default);
-        border-radius: 3px 3px 0 0;
-    }
-
-    .UnderlineNav-item.selected {
-        background-color: var(--bgColor-default);
-        border-left: 1px solid var(--borderColor-default);
-        border-right: 1px solid var(--borderColor-default);
-        border-bottom: 1px solid transparent !important;
-        border-top: 3px solid var(--color-primer-border-active);
+        border-top-width: 3px;
+        border-bottom: none;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        margin-top: -8px;
+        margin-bottom: -13px;
         padding-left: 12px;
         padding-right: 12px;
+        padding-top: 8px;
+        padding-bottom: 12px;
     }
 
-    .UnderlineNav-body .d-flex > a {
-        visibility: visible !important;
+    a[class^="prc-components-UnderlineItem"][aria-current="page"] {
+        background: var(--bgColor-default);
+        border-color: var(--fgColor-accent);
     }
 
-    /* Remove border on app header button (top-left) */
-    .AppHeader-button {
-        border: none !important;
+    a[class^="prc-components-UnderlineItem"][data-component="icon"] {
+        margin-inline-end: 0.4rem;
+    }
+
+    /* Remove border on top-left app header menu button */
+    div[data-testid="top-nav-left"] button[class*="styles-module__appHeaderButton"] {
+        border-color: transparent !important;
     }
 
 

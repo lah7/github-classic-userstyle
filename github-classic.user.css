@@ -2,7 +2,7 @@
 @name         GitHub Classic
 @namespace    https://github.com/lah7/github-classic-css
 @homepageURL  https://github.com/lah7/github-classic-css
-@version      2026.01.25
+@version      2026.02.13
 @license      Other
 @description  Bring back aesthetics from the classic GitHub interface.
 @author       lah7
@@ -341,6 +341,20 @@
     div[data-testid="list-view-item-title-container"] a {
         font-size: 14px;
         font-weight: 600;
+    }
+
+    li[data-testid="commit-row-item"] button[data-variant="default"][data-component="IconButton"] {
+        border-left: none !important;
+    }
+
+    button[data-testid="commit-row-show-description-button"] {
+        margin: -8px;
+    }
+
+    /* GH bug: When multiple attributors, fix the width */
+    span[class*="pc-AvatarStack--variant"] {
+        min-width: unset;
+        width: 25px;
     }
 
     /* Restore show/hide toggle for extended commit */

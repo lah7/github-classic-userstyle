@@ -2,7 +2,7 @@
 @name         GitHub Classic
 @namespace    https://github.com/lah7/github-classic-css
 @homepageURL  https://github.com/lah7/github-classic-css
-@version      2026.02.13
+@version      2026.02.22
 @license      Other
 @description  Bring back aesthetics from the classic GitHub interface.
 @author       lah7
@@ -60,6 +60,11 @@
     /* Remove border on top-left app header menu button */
     div[data-testid="top-nav-left"] button[class*="styles-module__appHeaderButton"] {
         border-color: transparent !important;
+    }
+
+    /* A regression we introduced - scroll bar for the row of tabs */
+    nav[class*="LocalNavigation-module__LocalNavigation"] {
+        overflow: hidden;
     }
 
 

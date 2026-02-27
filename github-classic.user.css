@@ -2,7 +2,7 @@
 @name         GitHub Classic
 @namespace    https://github.com/lah7/github-classic-css
 @homepageURL  https://github.com/lah7/github-classic-css
-@version      2026.02.22
+@version      2026.02.27
 @license      Other
 @description  Bring back aesthetics from the classic GitHub interface.
 @author       lah7
@@ -414,7 +414,7 @@
         margin: auto 2px;
     }
 
-    .discussion-topic-header #pull_request_title_header /* "Add a title (PR) */ {
+    .discussion-topic-header label {  /* "Add a title" */
         display: none;
     }
 

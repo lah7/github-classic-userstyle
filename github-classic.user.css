@@ -2,7 +2,7 @@
 @name         GitHub Classic
 @namespace    https://github.com/lah7/github-classic-css
 @homepageURL  https://github.com/lah7/github-classic-css
-@version      2026.02.27
+@version      2026.03.20
 @license      Other
 @description  Bring back aesthetics from the classic GitHub interface.
 @author       lah7
@@ -609,7 +609,7 @@
     ************************************************/
     /* Remove "Add a comment", "Add a title", "Add a description" titles */
     #issue_title_header,
-    #react-issue-comment-composer > div:first-child h2,
+    #comment-composer-heading,
     h3[id^=previewable-comment-form-component],
     #new_comment_form h4[id^="previewable-comment"] {
         display: none;

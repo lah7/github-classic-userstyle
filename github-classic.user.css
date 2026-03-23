@@ -2,7 +2,7 @@
 @name         GitHub Classic
 @namespace    https://github.com/lah7/github-classic-css
 @homepageURL  https://github.com/lah7/github-classic-css
-@version      2026.03.20
+@version      2026.03.23
 @license      Other
 @description  Bring back aesthetics from the classic GitHub interface.
 @author       lah7
@@ -493,6 +493,11 @@
 
     ul[class*="ActionList-ActionList"] li button span[class*="ActionList-ItemLabel"] {
         font-weight: 600;
+    }
+
+    /* Fix the spacing between sidebar items (Assignees, Labels, Type, Projects, etc) */
+    div[data-testid="sidebar-assignees-section"] {
+        margin-bottom: 12px;
     }
 
 

@@ -2,7 +2,7 @@
 @name         GitHub Classic
 @namespace    https://github.com/lah7/github-classic-css
 @homepageURL  https://github.com/lah7/github-classic-css
-@version      2026.04.24
+@version      2026.05.15
 @license      Other
 @description  Bring back aesthetics from the classic GitHub interface.
 @author       lah7
@@ -499,6 +499,25 @@
     /* Fix the spacing between sidebar items (Assignees, Labels, Type, Projects, etc) */
     div[data-testid="sidebar-assignees-section"] {
         margin-bottom: 12px;
+    }
+
+    /* Position "Last edited by <username>" back to "edited" and position on the left again */
+    div[class*="ActivityHeader-module__EditsContainer"] {
+        justify-content: start !important;
+        margin-left: -14px;
+    }
+
+    button[class*="MarkdownEditHistoryViewer-"] {
+        font-size: 0.85rem;
+        margin: 0 auto !important;
+    }
+
+    button[class*="MarkdownEditHistoryViewer-"] span[data-component="buttonContent"]::before {
+        content: "• edited";
+    }
+
+    button[class*="MarkdownEditHistoryViewer-"] span[data-component="text"] {
+        display: none;
     }
 
 

@@ -2,7 +2,7 @@
 @name         GitHub Classic
 @namespace    https://github.com/lah7/github-classic-css
 @homepageURL  https://github.com/lah7/github-classic-css
-@version      2026.05.15
+@version      2026.06.17
 @license      Other
 @description  Bring back aesthetics from the classic GitHub interface.
 @author       lah7
@@ -507,9 +507,10 @@
         margin-left: -14px;
     }
 
-    button[class*="MarkdownEditHistoryViewer-"] {
+    div[class*="MarkdownEditHistoryViewer-"] {
         font-size: 0.85rem;
         margin: 0 auto !important;
+        margin-left: 0 !important;
     }
 
     button[class*="MarkdownEditHistoryViewer-"] span[data-component="buttonContent"]::before {

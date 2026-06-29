@@ -432,6 +432,43 @@
     * "New" Issues Experience
     *   github.com/<org>/<repo>/issues
     ************************************************/
+    #issue-timeline {
+        margin-left: 64px;
+    }
+
+    /* Restore avatars on the left side */
+    div[class^="ActivityHeader-module__activityHeader"] {
+        overflow: visible;
+        height: 32px;
+        padding: 2px;
+    }
+
+    div[class^="IssueBody-module__headerRow"] {
+        margin-left: 64px;
+    }
+
+    div[class^="IssueBodyHeader-module"] {
+        overflow: visible;
+    }
+
+    div[class^="IssueBodyHeader-module"] img[data-component="Avatar"] {
+        margin: 0;
+        margin-left: -68px;
+        height: 40px;
+        width: 40px;
+    }
+
+    .react-comments-container div[class^="ActivityHeader-module"] img[data-component="Avatar"] {
+        margin-left: -68px;
+        height: 40px;
+        width: 40px;
+    }
+
+    .react-comments-container div[data-testid="comment-header"]::before,
+    .react-comments-container div[data-testid="comment-header"]::after {
+        left: -8px;
+    }
+
     /* Avatar for new issues page */
     img[class^="IssueCreatePage-module__avatar"] {
         height: 40px;
@@ -513,13 +550,14 @@
     }
 
     div[class*="MarkdownEditHistoryViewer-"] {
-        font-size: 0.85rem;
         margin: 0 auto !important;
         margin-left: 0 !important;
     }
 
     button[class*="MarkdownEditHistoryViewer-"] span[data-component="buttonContent"]::before {
         content: "• edited";
+        font-size: 0.85rem;
+        margin-bottom: 3px;
     }
 
     button[class*="MarkdownEditHistoryViewer-"] span[data-component="text"] {
@@ -745,7 +783,7 @@
         position: absolute;
         top: 11px;
         right: 100%;
-        left: calc(var(--base-size-8)*-1);
+        left: 56px;
         display: block;
         width: 8px;
         height: 16px;

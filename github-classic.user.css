@@ -2,7 +2,7 @@
 @name         GitHub Classic
 @namespace    https://github.com/lah7/github-classic-css
 @homepageURL  https://github.com/lah7/github-classic-css
-@version      2026.07.18
+@version      2026.07.24
 @license      Other
 @description  Bring back aesthetics from the classic GitHub interface.
 @author       lah7
@@ -30,7 +30,9 @@
     }
 
     ul[class^="prc-UnderlineNav-ItemsList"] {
-        gap: 0;
+        gap: 4px;
+        margin-left: 4px;
+        overflow: visible;
     }
 
     /* Highlight the selected page in the navigation tabs */

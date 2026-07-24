@@ -35,6 +35,11 @@
         overflow: visible;
     }
 
+    /* Always show icons */
+    ul[class^="prc-UnderlineNav-ItemsList"] span[data-component="icon"] {
+        display: inline-flex;
+    }
+
     /* Highlight the selected page in the navigation tabs */
     a[class^="prc-components-UnderlineItem"]::after {
         display: none;

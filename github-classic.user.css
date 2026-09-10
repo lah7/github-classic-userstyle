@@ -692,6 +692,49 @@
         font-weight: 500;
     }
 
+    /* "6 Open  86 Closed" - place counters back on the left, like classic GitHub */
+    a[class*="SectionFilterLink-module__container"] {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    span[class*="SectionFilterLink-module__count"] {
+        background: transparent;
+        color: inherit;
+        font-weight: inherit;
+        font-size: inherit;
+        padding: 0;
+        margin: 0;
+        margin-right: 3px;
+        min-width: unset;
+    }
+
+    /* Restore icons on Open/Closed labels */
+    a[class*="SectionFilterLink-module__container"]::after {
+        content: " ";
+        height: 16px;
+        width: 16px;
+        margin-right: 6px;
+        background-size: 16px;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: invert(0.5);
+    }
+
+    a[class*="SectionFilterLink-module__container"]:nth-of-type(1)::after {
+        background-image: url(https://raw.githubusercontent.com/primer/octicons/refs/heads/main/icons/git-pull-request-16.svg);
+    }
+
+    a[class*="SectionFilterLink-module__container"]:nth-of-type(2)::after {
+        background-image: url(https://raw.githubusercontent.com/primer/octicons/refs/heads/main/icons/check-16.svg);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        a[class*="SectionFilterLink-module__container"][class*="SectionFilterLink-module__selected"]::after {
+            filter: invert(1);
+        }
+    }
+
 
     /************************************************
     * Comments Timeline

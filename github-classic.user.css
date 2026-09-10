@@ -2,7 +2,7 @@
 @name         GitHub Classic
 @namespace    https://github.com/lah7/github-classic-css
 @homepageURL  https://github.com/lah7/github-classic-css
-@version      2026.07.24
+@version      2026.09.10
 @license      Other
 @description  Bring back aesthetics from the classic GitHub interface.
 @author       lah7
@@ -676,6 +676,20 @@
 
     div[class*="LoadingSkeleton"] { /* Original counter briefly appears on the right side of the label */
         display: none;
+    }
+
+
+    /************************************************
+    * New Pull Requests Experience
+    *   github.com/<org>/<repo>/pulls
+    ************************************************/
+    a[data-testid="listitem-title-link"] {
+        font-weight: 600;
+    }
+
+    button[class^="PullsListItem-module"] span {
+        border-radius: 0;
+        font-weight: 500;
     }
 
 

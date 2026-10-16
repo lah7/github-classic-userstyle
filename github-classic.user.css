@@ -505,9 +505,9 @@
         left: -5px;
     }
 
-    /* Square, regular labels in timeline events */
-    li[class*="Timeline_Item__"] span[class*="IssueLabelToken__"],
-    li[class*="Timeline_Item__"] span[class*="IssueLabelToken__"] * {
+    /* Square, regular labels everywhere (timeline events, issue and PR lists) */
+    span[class*="IssueLabelToken__"],
+    span[class*="IssueLabelToken__"] * {
         border-radius: 2px;
         font-weight: 400;
     }
@@ -623,12 +623,28 @@
 
 
     /************************************************
-     * Issues: Restore icons on Open/Closed labels
+     * Issues & Pull Requests: Open/Closed filters
      *   github.com/<org>/<repo>/issues
+     *   github.com/<org>/<repo>/pulls
      ************************************************/
+    /* "[icon] 6 Open" - counter back on the left, like classic GitHub */
+    a[class*="container__"]:has(> div[class*="title__"] + span[class*="count__"]) {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    a[class*="container__"] > span[class*="count__"] {
+        background: transparent;
+        color: inherit;
+        font-weight: inherit;
+        font-size: inherit;
+        padding: 0;
+        margin: 0 3px 0 0;
+        min-width: unset;
+    }
+
     /* Icons at https://github.com/primer/octicons/tree/main/icons */
-    ul[class*="ListItems-module__tabsContainer"] li:nth-child(1) a[href*="issues"]::after,
-    ul[class*="ListItems-module__tabsContainer"] li:nth-child(2) a[href*="issues"]::after {
+    a[class*="container__"]:has(> div[class*="title__"] + span[class*="count__"])::after {
         content: " ";
         height: 16px;
         width: 16px;
@@ -640,19 +656,20 @@
         filter: invert(0.5);
     }
 
+    a[class*="container__"][href*="pulls"]:has(> div[class*="title__"] + span[class*="count__"])::after {
+        background-image: url(https://raw.githubusercontent.com/primer/octicons/refs/heads/main/icons/git-pull-request-16.svg);
+    }
+
+    li:nth-child(2) > a[class*="container__"]:has(> div[class*="title__"] + span[class*="count__"])::after,
+    li:last-child > a[class*="container__"]:has(> div[class*="title__"] + span[class*="count__"])::after,
+    a[class*="container__"][href*="state%3Aclosed"]:has(> div[class*="title__"] + span[class*="count__"])::after {
+        background-image: url(https://raw.githubusercontent.com/primer/octicons/refs/heads/main/icons/check-16.svg);
+    }
+
     @media (prefers-color-scheme: dark) {
-        ul[class*="ListItems-module__tabsContainer"] li:nth-child(1) a[href*="issues"][class*="SectionFilterLink-module__selected"]::after,
-        ul[class*="ListItems-module__tabsContainer"] li:nth-child(2) a[href*="issues"][class*="SectionFilterLink-module__selected"]::after {
+        a[class*="container__"][class*="selected__"]:has(> div[class*="title__"] + span[class*="count__"])::after {
             filter: invert(1);
         }
-    }
-
-    ul[class*="ListItems-module__tabsContainer"] li:nth-child(1) a[href*="issues"]::after {
-        background-image: url(https://raw.githubusercontent.com/primer/octicons/refs/heads/main/icons/issue-opened-16.svg);
-    }
-
-    ul[class*="ListItems-module__tabsContainer"] li:nth-child(2) a[href*="issues"]::after {
-        background-image: url(https://raw.githubusercontent.com/primer/octicons/refs/heads/main/icons/check-16.svg);
     }
 
 
@@ -732,57 +749,19 @@
     * New Pull Requests Experience
     *   github.com/<org>/<repo>/pulls
     ************************************************/
-    a[data-testid="listitem-title-link"] {
+    /* Historically was bold, but less bold seems progressively less intensive */
+    /*[data-testid="listitem-title-link"],
+    a[data-testid="issue-listitem-title-link"],
+    a[data-testid="issue-listitem-title-link"] span {
         font-weight: 600;
-    }
+    }*/
 
     button[class^="PullsListItem-module"] span {
         border-radius: 0;
         font-weight: 500;
     }
 
-    /* "6 Open  86 Closed" - place counters back on the left, like classic GitHub */
-    a[class*="SectionFilterLink-module__container"] {
-        display: flex;
-        flex-direction: row-reverse;
-    }
-
-    span[class*="SectionFilterLink-module__count"] {
-        background: transparent;
-        color: inherit;
-        font-weight: inherit;
-        font-size: inherit;
-        padding: 0;
-        margin: 0;
-        margin-right: 3px;
-        min-width: unset;
-    }
-
-    /* Restore icons on Open/Closed labels */
-    a[class*="SectionFilterLink-module__container"]::after {
-        content: " ";
-        height: 16px;
-        width: 16px;
-        margin-right: 6px;
-        background-size: 16px;
-        background-position: center;
-        background-repeat: no-repeat;
-        filter: invert(0.5);
-    }
-
-    a[class*="SectionFilterLink-module__container"]:nth-of-type(1)::after {
-        background-image: url(https://raw.githubusercontent.com/primer/octicons/refs/heads/main/icons/git-pull-request-16.svg);
-    }
-
-    a[class*="SectionFilterLink-module__container"]:nth-of-type(2)::after {
-        background-image: url(https://raw.githubusercontent.com/primer/octicons/refs/heads/main/icons/check-16.svg);
-    }
-
-    @media (prefers-color-scheme: dark) {
-        a[class*="SectionFilterLink-module__container"][class*="SectionFilterLink-module__selected"]::after {
-            filter: invert(1);
-        }
-    }
+    /* "6 Open  86 Closed" handled above (Open/Closed filters) */
 
 
     /************************************************
@@ -913,12 +892,12 @@
     }
 
     /* Colourise renamed title changes */
-    del[class^="RenamedTitleEvent-module"] {
+    del[class*="strikeThrough__"] {
         background: var(--borderColor-closed-muted);
         color: var(--fgColor-muted);
     }
 
-    ins[class^="RenamedTitleEvent-module"] {
+    ins[class*="noUnderline__"] {
         background: var(--bgColor-success-muted);
         color: var(--fgColor-success);
     }

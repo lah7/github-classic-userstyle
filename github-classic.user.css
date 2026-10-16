@@ -2,7 +2,7 @@
 @name         GitHub Classic
 @namespace    https://github.com/lah7/github-classic-css
 @homepageURL  https://github.com/lah7/github-classic-css
-@version      2026.09.10
+@version      2026.10.16
 @license      Other
 @description  Bring back aesthetics from the classic GitHub interface.
 @author       lah7
@@ -441,40 +441,75 @@
     *   github.com/<org>/<repo>/issues
     ************************************************/
     #issue-timeline {
-        margin-left: 64px;
+        margin-left: 64px !important;
     }
 
     /* Restore avatars on the left side */
-    div[class^="ActivityHeader-module__activityHeader"] {
-        overflow: visible;
-        height: 32px;
-        padding: 2px;
-    }
-
-    div[class^="IssueBody-module__headerRow"] {
+    div[class*="headerRow__"] {
         margin-left: 64px;
     }
 
-    div[class^="IssueBodyHeader-module"] {
+    div[class*="IssueBodyHeaderContainer__"],
+    div[class*="activityHeader__"],
+    div[class*="avatarContainer__"],
+    div[class*="AvatarContainer__"] {
         overflow: visible;
     }
 
-    div[class^="IssueBodyHeader-module"] img[data-component="Avatar"] {
-        margin: 0;
-        margin-left: -68px;
-        height: 40px;
-        width: 40px;
+    /* Zero height so the 40px avatar doesn't stretch the header */
+    div[class*="avatarContainer__"],
+    div[class*="AvatarContainer__"] {
+        flex: none;
+        height: 0;
+        align-self: flex-start;
     }
 
-    .react-comments-container div[class^="ActivityHeader-module"] img[data-component="Avatar"] {
-        margin-left: -68px;
-        height: 40px;
-        width: 40px;
+    div[class*="IssueBodyHeaderContainer__"] {
+        padding: 4px 8px !important;
     }
 
-    .react-comments-container div[data-testid="comment-header"]::before,
-    .react-comments-container div[data-testid="comment-header"]::after {
-        left: -8px;
+    div[data-testid="comment-header"] {
+        padding: 4px 8px 4px 16px !important;
+    }
+
+    div[data-testid="comment-header"] div[class*="AvatarContainer__"] {
+        margin: 0 !important;
+    }
+
+    div[data-testid="comment-header"] div[class*="narrowViewportWrapper__"] {
+        align-self: center;
+    }
+
+    div[class*="IssueBodyHeaderContainer__"] img[data-component="Avatar"],
+    div[data-testid="comment-header"] img[data-component="Avatar"] {
+        margin-left: -68px;
+        margin-top: -4px;
+        height: 40px;
+        width: 40px;
+        min-width: 40px;
+        max-width: none;
+        flex: none;
+    }
+
+    div[data-testid="comment-header"] img[data-component="Avatar"] {
+        margin-left: -76px;
+    }
+
+    /* Timeline events: line and icons align with the avatar column */
+    li[class*="Timeline_Item__"] {
+        margin-left: 15px !important;
+    }
+
+    div[class*="Box_inlineAvatars__"] > div:first-child { /* Connector between comments */
+        position: relative;
+        left: -5px;
+    }
+
+    /* Square, regular labels in timeline events */
+    li[class*="Timeline_Item__"] span[class*="IssueLabelToken__"],
+    li[class*="Timeline_Item__"] span[class*="IssueLabelToken__"] * {
+        border-radius: 2px;
+        font-weight: 400;
     }
 
     /* Avatar for new issues page */
@@ -551,25 +586,39 @@
         margin-bottom: 12px;
     }
 
-    /* Position "Last edited by <username>" back to "edited" and position on the left again */
-    div[class*="ActivityHeader-module__EditsContainer"] {
-        justify-content: start !important;
-        margin-left: -14px;
+    /* Other sections have less top spacing than Labels */
+    div[data-testid="sidebar-types-section"],
+    div[data-testid="sidebar-projects-section"],
+    div[data-testid="sidebar-milestones-section"],
+    div[data-testid="sidebar-relationships-section"],
+    div[data-testid="sidebar-development-section"] {
+        padding-top: 4px;
     }
 
-    div[class*="MarkdownEditHistoryViewer-"] {
-        margin: 0 auto !important;
-        margin-left: 0 !important;
+    /* Position "Last edited by <username>" back to "• edited by <username>" on the left again */
+    div[class*="activityHeader__"] > div[class*="actionsWrapper__"] {
+        flex: 1;
+        justify-content: flex-start;
     }
 
-    button[class*="MarkdownEditHistoryViewer-"] span[data-component="buttonContent"]::before {
-        content: "• edited";
-        font-size: 0.85rem;
-        margin-bottom: 3px;
+    div[class*="actionsWrapper__"] > div[class*="editsSection__"],
+    div[class*="ActionsContainer__"] > div[class*="EditsContainer__"] {
+        flex: none;
+        margin-right: auto;
+        justify-content: flex-start;
     }
 
-    button[class*="MarkdownEditHistoryViewer-"] span[data-component="text"] {
-        display: none;
+    span[class*="lastEditInfoContainer__"] {
+        font-size: 0;
+    }
+
+    span[class*="lastEditInfoContainer__"]::before {
+        content: "• edited by ";
+        font-size: 14px;
+    }
+
+    span[class*="editorLogin__"] {
+        font-size: 14px;
     }
 
 
@@ -782,12 +831,6 @@
     }
 
     /* Comment header and buttons */
-    div[data-testid^="comment-header"] {
-        /* Second comment onwards */
-        padding-left: 6px;
-        padding-right: 6px;
-    }
-
     div[class*="ActivityHeader-module__narrowViewportWrapper"]:last-of-type button {
         /* First comment only */
         margin-right: 6px;
@@ -800,7 +843,7 @@
     }
 
     div[data-testid="comment-header-right-side-items"] {
-        margin-right: -8px;
+        margin-right: 0;
         flex: 1;
     }
 
@@ -836,19 +879,19 @@
     }
 
     /* Bring back the caret arrow pointing at avatar */
-    div[data-testid="issue-body"],
+    div[class*="IssueBodyHeaderContainer__"],
     div[data-testid="comment-header"] {
         position: relative;
     }
 
-    div[data-testid="issue-body"]::before,
-    div[data-testid="issue-body"]::after,
+    div[class*="IssueBodyHeaderContainer__"]::before,
+    div[class*="IssueBodyHeaderContainer__"]::after,
     div[data-testid="comment-header"]::before,
     div[data-testid="comment-header"]::after {
         position: absolute;
         top: 11px;
         right: 100%;
-        left: 56px;
+        left: -8px;
         display: block;
         width: 8px;
         height: 16px;
@@ -857,12 +900,12 @@
         clip-path: polygon(0 50%, 100% 0, 100% 100%);
     }
 
-    div[data-testid="issue-body"]::before,
+    div[class*="IssueBodyHeaderContainer__"]::before,
     div[data-testid="comment-header"]::before {
         background-color: var(--borderColor-default, var(--color-border-default));
     }
 
-    div[data-testid="issue-body"]::after,
+    div[class*="IssueBodyHeaderContainer__"]::after,
     div[data-testid="comment-header"]::after {
         margin-left: 2px;
         background-color: var(--bgColor-default, var(--color-canvas-default));
@@ -956,7 +999,7 @@
         z-index: 10;
     }
 
-    div[class^="IssueBodyHeader-module__IssueBodyHeaderContainer"], /* First comment */
+    div[class*="IssueBodyHeaderContainer__"], /* First comment */
     div[data-testid="comment-header"] {
         position: sticky;
         top: 56px;

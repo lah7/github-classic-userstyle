@@ -2,7 +2,7 @@
 @name         GitHub Classic
 @namespace    https://github.com/lah7/github-classic-css
 @homepageURL  https://github.com/lah7/github-classic-css
-@version      2026.10.16
+@version      2026.10.22
 @license      Other
 @description  Bring back aesthetics from the classic GitHub interface.
 @author       lah7
@@ -457,8 +457,8 @@
     }
 
     /* Zero height so the 40px avatar doesn't stretch the header */
-    div[class*="avatarContainer__"],
-    div[class*="AvatarContainer__"] {
+    div[class*="IssueContent"] div[class*="avatarContainer__"],
+    div[class*="IssueContent"] div[class*="AvatarContainer__"] {
         flex: none;
         height: 0;
         align-self: flex-start;

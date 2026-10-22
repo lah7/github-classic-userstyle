@@ -440,11 +440,17 @@
     * "New" Issues Experience
     *   github.com/<org>/<repo>/issues
     ************************************************/
+    /* Remove "Add a title" and "Add a description" labels */
+    div[class*="IssueCreatePageContainer"] legend,
+    div[class*="IssueCreatePageContainer"] label {
+        display: none;
+    }
+
+    /* Restore avatars on the left side */
     #issue-timeline {
         margin-left: 64px !important;
     }
 
-    /* Restore avatars on the left side */
     div[class*="headerRow__"] {
         margin-left: 64px;
     }

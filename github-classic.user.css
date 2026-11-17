@@ -2,7 +2,7 @@
 @name         GitHub Classic
 @namespace    https://github.com/lah7/github-classic-css
 @homepageURL  https://github.com/lah7/github-classic-css
-@version      2026.10.22
+@version      2026.11.17
 @license      Other
 @description  Bring back aesthetics from the classic GitHub interface.
 @author       lah7
@@ -695,7 +695,7 @@
     *   github.com/<org>/<repo>/commit/<sha>
     ************************************************/
     /* Commit titles were not mono! */
-    div[class^="CommitHeader-module__commitMessageContainer"] > span:first-child div {
+    div[class*="commitMessageContainer"] > span:first-child div {
         font-family: sans-serif;
         font-size: 16px;
         font-weight: bold;
